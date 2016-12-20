@@ -17,6 +17,7 @@ process.env.DEBUG = 'actions-on-google:*';
 let Assistant = require('actions-on-google').ApiAiAssistant;
 let express = require('express');
 let bodyParser = require('body-parser');
+let request = require('request');
 
 let app = express();
 app.use(bodyParser.json({type: 'application/json'}));
@@ -30,7 +31,19 @@ app.post('/', function (req, res) {
   // Fulfill action business logic
   function responseHandler (assistant) {
     // Complete your fulfillment logic and send a response
-    assistant.tell('Hello, World!');
+    assistant.tell('Start Opening');
+    var options = {
+      uri: "https://api.akerun.com/v1/manager/organizations/3/tsunaguns/639/jobs",
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+      },
+      form: {
+        "access_token": "bb8ddb5cf8dd54cd2d64c669bd557b50",
+        "device_id": "4401",
+        "job_type": "1"
+      }
+    };
+    request.post(options, function(error, response, body){});
   }
 
   assistant.handleRequest(responseHandler);
