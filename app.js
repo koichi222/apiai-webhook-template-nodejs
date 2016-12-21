@@ -43,7 +43,11 @@ app.post('/', function (req, res) {
         "job_type": "1"
       }
     };
-    request.post(options, function(error, response, body){});
+    request.post(options, function(error, response, body){
+      console.log('error:' + JSON.stringify(error));
+      console.log('response:' + JSON.stringify(response));
+      console.log('body:' + JSON.stringify(body));
+    });
   }
 
   assistant.handleRequest(responseHandler);
