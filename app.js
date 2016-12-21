@@ -38,7 +38,7 @@ app.post('/', function (req, res) {
         "Content-type": "application/x-www-form-urlencoded",
       },
       form: {
-        "access_token": "bb8ddb5cf8dd54cd2d64c669bd557b50",
+        "access_token": "372973e1ceb3c3402c3b5488223439b6",
         "device_id": "4401",
         "job_type": "1"
       }
@@ -46,7 +46,6 @@ app.post('/', function (req, res) {
     request.post(options, function(error, response, body){
       console.log('error:' + JSON.stringify(error));
       console.log('response:' + JSON.stringify(response));
-      console.log('body:' + JSON.stringify(body));
     });
   }
 
